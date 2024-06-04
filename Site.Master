@@ -67,6 +67,7 @@
                                    <ul class="dropdown-menu" aria-labelledby="adminDropdown">
                                       <li><a class="dropdown-item" href="ManageDelivery.aspx">Manage Orders</a></li>
                                        <li><a class="dropdown-item" href="Product_Form1.aspx">Manage Products</a></li> 
+                                       <li><a class="dropdown-item" href="CategoryForm.aspx">Manage Categorys</a></li>
                                        <li><a class="dropdown-item" href="SignoutPage.aspx">Sign Out</a></li>
                                    </ul>
                                </li>
