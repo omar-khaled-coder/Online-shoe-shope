@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/">ShoeHaven</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -56,40 +56,46 @@
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                        
                         
-                       <%if (Session["id"] != null)
-                           {%> 
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> USER <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li> <a href="ShoppingCart.aspx"> Cart</a> </li>
-                                    <li><a href="manageprofile.aspx"> Manage Profile</a> </li>
-                                    <li><a href="SignoutPage.aspx"> Sign Out</a> </li>
+                       <% if (Session["id"] != null)
+                       {
+                           if (Session["email"] != null && Session["email"].ToString() == "omar@gmail.com")
+                           { %> 
+                               <li class="nav-item dropdown">
+                                   <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                       Admin
+                                   </a>
+                                   <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                                      <li><a class="dropdown-item" href="ManageDelivery.aspx">Manage Orders</a></li>
+                                       <li><a class="dropdown-item" href="Product_Form1.aspx">Manage Products</a></li> 
+                                       <li><a class="dropdown-item" href="SignoutPage.aspx">Sign Out</a></li>
+                                   </ul>
+                               </li>
+                           <% }
+                           else
+                           { %>
+                               <li class="nav-item dropdown">
+                                   <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                       USER
+                                   </a>
+                                   <div class="dropdown-menu" aria-labelledby="userDropdown">
+                                       <a class="dropdown-item" href="ShoppingCart.aspx">Cart</a>
+                                       <a class="dropdown-item" href="manageprofile.aspx">Manage Profile</a>
+                                       <a class="dropdown-item" href="SignoutPage.aspx">Sign Out</a>
+                                   </div>
+                               </li>
+                           <% }
+                       }
+                       else
+                       { %>
+                           <li class="nav-item">
+                               <a class="nav-link" runat="server" href="~/Signup_Form1.aspx">Sign up</a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link" runat="server" href="~/Signin_Form1.aspx">Sign In</a>
+                           </li>
+                       <% }
+                           %>
 
-                                </ul>
-                        </li>
-                        <%}
-                         else
-                            {%>
-                            
-                            <li><a runat="server" href="~/Signup_Form1.aspx"> Sign up</a></li>
-                            <li><a runat="server" href="~/Signin_Form1.aspx"> Sign In</a></li> 
-                          
-                        <%}
-                    
-                        if (Session["email"] != null && Session["email"].ToString() == "omar@gmail.com")
-                       {%> 
-            
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Admin <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li> <a href="ManageDElivery.aspx"> Manage Orders</a> </li>
-                                    <li><a href="SignoutPage.aspx"> Sign Out</a> </li>
-
-                                </ul>
-                        </li>
-                        <%}
-                              %>
-                    
                     </ul>
                     
                 </div>

@@ -6,7 +6,7 @@
         <h1>
             <asp:Label ID="Lblname" runat="server" Text="Label"></asp:Label>
         </h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
+        <p class="lead" style="text-align: center">Discover the perfect blend of style, comfort, and quality at ShoeHaven. We offer a wide range of trendy and affordable footwear for every occasion. Whether you&#39;re looking for casual sneakers, elegant heels, or sturdy boots, we&#39;ve got you covered. Our collection is carefully curated to bring you the latest in fashion and timeless classics. </p>
         <p><a href="Product_Catalog.aspx" class="btn btn-primary btn-lg">Our Products &raquo;</a></p>
         <p>
             &nbsp;</p>

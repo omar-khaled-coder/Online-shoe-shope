@@ -19,7 +19,7 @@ namespace WebApplication2_database_members_lesson
             else
             {
                 
-                Lblname.Text = "Welcom gust";
+                Lblname.Text = "Welcom to ShoeHaven!";
 
             }
 
