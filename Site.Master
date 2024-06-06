@@ -15,6 +15,16 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <style type="text/css">
+        .auto-style1 {
+            font-size: medium;
+        }
+
+
+
+    </style>
+
+
 </head>
 <body>
     <form runat="server">
@@ -106,9 +116,20 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
+
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                
+                <ul class="list-unstyled">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about">About Us</a></li>
+                  <li><a href="/services">Our Services</a></li>
+                  <li><a href="/contact">Contact Us</a></li>
+                  </ul>
+
+                <p class="auto-style1">Contact us at: contact@example.com</p>
+                <p>&copy; <%: DateTime.Now.Year %> - ShoeHaven</p>
             </footer>
+
         </div>
 
     </form>
