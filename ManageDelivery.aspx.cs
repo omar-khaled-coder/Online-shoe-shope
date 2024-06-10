@@ -17,27 +17,28 @@ namespace WebApplication2_database_members_lesson
 
         }
 
-        
+
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
             if (e.CommandName == "update")
             {
                 DropDownList dl = e.Item.FindControl("DropdownList1") as DropDownList;
-                Label id = e.Item.FindControl("idlabel") as Label;
+                Label scid = e.Item.FindControl("scidLabel") as Label; // Ensure it matches 'scidLabel'
                 string connStr = ConfigurationManager.ConnectionStrings["miaConStr"].ConnectionString;
                 SqlConnection conn = new SqlConnection(connStr);
                 conn.Open();
                 string query = "UPDATE ShoppingCart SET deliveryStatus=@deliveryStatus " +
-                                "WHERE id=@id AND paymentStatus='paid' ";
+                               "WHERE SCID=@scid AND paymentStatus='paid'"; // Use 'SCID' for correct column name
                 SqlCommand comm = new SqlCommand(query, conn);
                 comm.Parameters.AddWithValue("@deliveryStatus", dl.SelectedValue);
-                comm.Parameters.AddWithValue("@id", id.Text);
+                comm.Parameters.AddWithValue("@scid", scid.Text);
                 comm.ExecuteNonQuery();
-                Response.Write("Delivery Satus has been updated");
+                Response.Write("Delivery Status has been updated");
                 conn.Close();
-
             }
         }
+
+
     }
 }

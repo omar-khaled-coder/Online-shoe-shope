@@ -89,7 +89,7 @@
         </div>
 
         <div class="message-label">
-            <asp:Label ID="lblmessage" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="lblmessage" runat="server"></asp:Label>
         </div>
 
         <asp:DataList ID="DataList1" runat="server"
@@ -145,11 +145,27 @@
             <asp:Label ID="lblGrandToal" runat="server" Text=""></asp:Label>
         </div>
 
+      <% 
+        int itemCount = 0;
+        string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["Miaconstr"].ConnectionString;
+        string query = "SELECT COUNT(*) FROM ShoppingCart WHERE id = @id AND paymentStatus = 'pending' AND deliveryStatus = 'pending'";
+        
+        using (System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(connectionString))
+        {
+            using (System.Data.SqlClient.SqlCommand comm = new System.Data.SqlClient.SqlCommand(query, conn))
+            {
+                comm.Parameters.AddWithValue("@id", Session["id"]);
+                conn.Open();
+                itemCount = (int)comm.ExecuteScalar();
+            }
+        }
+    %>
+
+    <% if (itemCount > 0) { %>
         <div class="text-center">
             <asp:Button ID="btnpay" runat="server" OnClick="btnpay_Click" Text="Check out" CssClass="btn-primary" />
         </div>
-    </div>
-
+    <% } %>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Miaconstr %>" 
         SelectCommand="SELECT p.*, sc.*, sc.qty*sc.price as subtotal FROM Products p, ShoppingCart sc
             WHERE p.pid = sc.pid AND sc.id = @id AND sc.paymentStatus = 'pending' AND sc.deliveryStatus = 'pending'" 
@@ -158,4 +174,5 @@
             <asp:SessionParameter Name="id" SessionField="id" />
         </SelectParameters>
     </asp:SqlDataSource>
+</div>
 </asp:Content>

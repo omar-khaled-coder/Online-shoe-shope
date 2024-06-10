@@ -61,7 +61,7 @@ namespace WebApplication2_database_members_lesson
             comm.Parameters.AddWithValue("@id", Session["id"].ToString());
             comm.ExecuteNonQuery();
             conn.Close();
-            Response.AddHeader("REFRESH", "3;URL=thankyou.aspx");
+            Response.AddHeader("REFRESH", "1;URL=thankyou.aspx");
         }
     }
 }

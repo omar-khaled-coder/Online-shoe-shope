@@ -88,11 +88,12 @@
                                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                        USER
                                    </a>
-                                   <div class="dropdown-menu" aria-labelledby="userDropdown">
-                                       <a class="dropdown-item" href="ShoppingCart.aspx">Cart</a>
-                                       <a class="dropdown-item" href="manageprofile.aspx">Manage Profile</a>
-                                       <a class="dropdown-item" href="SignoutPage.aspx">Sign Out</a>
-                                   </div>
+                                   <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                       <li><a class="dropdown-item" href="ShoppingCart.aspx">Cart</a></li>
+                                       <li><a class="dropdown-item" href="trackOOrderDelivery.aspx">Track Orders</a></li>
+                                      <li><a class="dropdown-item" href="manageprofile.aspx">Manage Profile</a></li> 
+                                       <li><a class="dropdown-item" href="SignoutPage.aspx">Sign Out</a></li>
+                                   </ul>
                                </li>
                            <% }
                        }
