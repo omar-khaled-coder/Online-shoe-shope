@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         .product-form-container {
-            max-width: 600px;
+            max-width: 1000px; /* Increase the max width */
             margin: 20px auto;
             padding: 20px;
             background-color: #f8f9fa;
@@ -64,10 +64,11 @@
         }
         .product-form-container .gridview-container th,
         .product-form-container .gridview-container td {
-            padding: 8px;
+            padding: 4px; /* Reduce padding */
             text-align: center;
             vertical-align: middle;
             border: 1px solid #dee2e6;
+            font-size: 12px; /* Reduce font size */
         }
         .product-form-container .gridview-container th {
             background-color: #343a40;
@@ -115,7 +116,7 @@
             <asp:Label ID="lblpid" runat="server" Text="Label"></asp:Label>
         </p>
         <div class="gridview-container">
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="cId,pId" DataSourceID="Sdproducts" ForeColor="#333333" GridLines="None" Height="222px" Width="908px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="cId,pId" DataSourceID="Sdproducts" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
