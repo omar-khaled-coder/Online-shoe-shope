@@ -16,7 +16,7 @@ namespace WebApplication2_database_members_lesson
         protected void Page_Load(object sender, EventArgs e)
         {
             //lblGrandTotal.Text = Session
-            Session["id"] = 4; //this is for debugging purposes,
+            //Session["id"] = 4; //this is for debugging purposes,
             grandTotal();
             if (Session["id"] == null)
             {

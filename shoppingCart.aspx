@@ -86,6 +86,7 @@
     <div class="shopping-cart-container">
         <div class="shopping-cart-header">
             Shopping Cart
+            <br />
         </div>
 
         <div class="message-label">
@@ -129,6 +130,7 @@
                         <asp:Label ID="subtotalLabel" runat="server" Text='<%# Eval("subtotal") %>' />
                     </td>
                     <td class="table-buttons">
+                        <asp:Label ID="scidLabel1" runat="server" Text='<%# Eval("SCID") %>' Visible="false" />
                         <asp:ImageButton ID="ImageButton1" ImageUrl="~/product_images/image.png" height="50" Width="50" CommandName="update" runat="server" />
                         <asp:ImageButton ID="ImageButton2" ImageUrl="~/product_images/image (1).png" height="50" Width="50" CommandName="delete" runat="server" />
                     </td>
@@ -169,7 +171,7 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Miaconstr %>" 
         SelectCommand="SELECT p.*, sc.*, sc.qty*sc.price as subtotal FROM Products p, ShoppingCart sc
             WHERE p.pid = sc.pid AND sc.id = @id AND sc.paymentStatus = 'pending' AND sc.deliveryStatus = 'pending'" 
-        DeleteCommand="DELETE FROM ShoppingCart">
+        DeleteCommand="DELETE FROM ShoppingCart WHERE p.pid = sc.pid AND sc.id = @id">
         <SelectParameters>
             <asp:SessionParameter Name="id" SessionField="id" />
         </SelectParameters>
